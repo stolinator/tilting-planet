@@ -1,0 +1,11 @@
+node_modules
+mvp
+
+.env
+.flaskenv
+
+*__pycache__
+
+server/static/bundle.js
+server/static/normalize.css
+db/images.json

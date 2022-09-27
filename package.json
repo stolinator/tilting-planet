@@ -1,0 +1,39 @@
+{
+  "name": "tilting-planet",
+  "version": "1.0.0",
+  "description": "A job search engine for people without an attention span",
+  "private": "true",
+  "scripts": {
+    "test": "jest",
+    "dev": "webpack --watch",
+    "db": "python -i db/shell.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/stolinator/tilting-planet"
+  },
+  "keywords": [
+    "react",
+    "chakra"
+  ],
+  "author": "James Stolhammer",
+  "license": "ISC",
+  "dependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.19.1",
+    "@babel/preset-env": "^7.19.1",
+    "@babel/preset-react": "^7.18.6",
+    "@chakra-ui/react": "^2.3.4",
+    "@emotion/react": "^11.10.4",
+    "@emotion/styled": "^11.10.4",
+    "axios": "^0.27.2",
+    "babel-loader": "^8.2.5",
+    "jest": "^29.0.3",
+    "normalize.css": "^8.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-tinder-card": "^1.5.4",
+    "webpack": "^5.74.0",
+    "webpack-cli": "^4.10.0"
+  }
+}
