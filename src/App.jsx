@@ -40,6 +40,8 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  UnorderedList,
+  ListItem
 } from '@chakra-ui/react';
 import {
   CheckIcon,
@@ -94,6 +96,18 @@ function newMessages() {
     duration: 5000,
     isClosable: true,
   });
+}
+
+const JobDescription = ({ description }) => {
+  const [main, ...rest] = description.split('•')
+  return (
+    <Box>
+      <Text>{main}</Text>
+      <UnorderedList>
+        { rest.map((bullet, i) => <ListItem key={i}>{bullet}</ListItem>) }
+      </UnorderedList>
+    </Box>
+  );
 }
 
 const JobItem = ({index, job, removeJob}) => {
@@ -164,7 +178,7 @@ const JobItem = ({index, job, removeJob}) => {
                 <Text><strong>Employer</strong> {employer}</Text>
                 <Link color="teal" href={url}>Link to Job Post</Link>
                 <Text><strong>Description</strong></Text>
-                <Text>{description}</Text>
+                <JobDescription description={description} />
               </DrawerBody>
               <DrawerFooter>
                 <Button variant='outline' mr={3} onClick={onClose}>Close</Button>
@@ -181,7 +195,7 @@ const ChatMessages = ({messages, employer, username}) => {
   if (employer !== '') {
     return (
       <div>
-        <Heading marginBottom="24px">Messages from {employer}</Heading>
+        <Heading marginTop="24px" marginBottom="24px">Messages from {employer}</Heading>
         <Box>
           <Text marginBottom="10px">Reply to {employer}</Text>
           <form onSubmit={(event) => {
@@ -202,8 +216,7 @@ const ChatMessages = ({messages, employer, username}) => {
             key={j}
             bgColor={msg.to === employer ? "blue.100" : "white"}
             borderRadius="8px"
-            padding="8px 8px"
-          >
+            padding="8px 8px" >
             <p><strong>{msg.from}</strong>, <em>{format(msg.at)}</em></p>
             <p>{msg.text}</p>
             <Divider />
@@ -366,7 +379,7 @@ const App = (props) => {
                       </h2>
                       <AccordionPanel pb={4}>
                         <Link color="teal" href={job.url}>Original Post</Link>
-                        <Text>{job.description}</Text>
+                        <JobDescription description={job.description} />
                       </AccordionPanel>
                     </AccordionItem>
                   ))

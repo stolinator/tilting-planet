@@ -3,6 +3,7 @@ from random import choice, randint
 from datetime import datetime
 from time import sleep
 from bson.objectid import ObjectId
+from job_generator import make_paragraph
 
 client = MongoClient()
 
@@ -57,9 +58,9 @@ while True:
                 if len(messages):
                     user_replied = user_messaged_last(user['username'], employer, messages)
                 empty = len(messages) == 0
-                print(f"user: {user['username']} messaged last: {user_replied}")
+                #print(f"user: {user['username']} messaged last: {user_replied}")
                 if user_replied or empty:
-                    print(f"user: {user['username']}, employer: {employer}")
+                    #print(f"user: {user['username']}, employer: {employer}")
                     # add the speech recognition and response generator here
-                    write_message(user, employer, 'hello, world')
+                    write_message(user, employer, make_paragraph((1,3), (10, 30)))
     sleep(0.5)
