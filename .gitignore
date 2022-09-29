@@ -3,8 +3,11 @@ mvp
 
 .env
 .flaskenv
+client.config.js
 
 *__pycache__
+
+
 
 server/static/bundle.js
 server/static/normalize.css

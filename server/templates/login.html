@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='skeleton.css') }}" />
+<style>
+  img:first-of-type {
+    width: 50%;
+  }
+  .row:first-of-type {
+    text-align: center;
+  }
+  form {
+    text-align: center;
+  }
+</style>
+<div class="container">
+  <div class="row">
+    <img src="{{ url_for('static', filename='recrutr.png') }}">
+  </div>
+  <h1>Login / Disclaimer</h1>
+  <div class="row">
+    <div class="six columns">
+      <p>This site is the result of a learning project. Information from this site was acquired from actual job posts.</p>
+      <p>That being said, the message capability is powered by chat-bots and any interactions here do not represent the entities whose posts show up on this site.</p>
+    </div>
+    <div class="six columns">
+      <p><em>Try the mobile version!</em></p>
+      <img id="qr-code" src="{{ url_for('static', filename='qr.png') }}" />
+    </div>
+  </div>
+  <hr />
+  <div class="row">
+    <form method="post">
+      <input placeholder="username" type="text" name="username"/>
+      <input type="submit" value="login as this user"/>
+    </form>
+  </div>
+</div>
+<!--
+<div id="root">
+</div>
+<script src="login.js"></script>
+-->
+{% endblock %}

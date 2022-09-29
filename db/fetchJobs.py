@@ -28,7 +28,8 @@ client = MongoClient() # assumes mongodb://localhost:27017
 
 db = client['mvp']
 table = db['jobs']
-with open('images.json') as f:
+
+with open('db/images.json') as f: # this should be a json file with an array of url strings to images
     photos = json.loads(f.read())
 
 for job in jobs:
